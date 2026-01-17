@@ -1,90 +1,75 @@
 "use client";
 
-import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
-export default function GiftList() {
-  const [gifts, setGifts] = useState([
-    {
-      id: 1,
-      name: "Conjunto de Panelas",
-      description: "Perfeito para preparar refeições especiais juntos.",
-      price: "R$ 600,00",
-      chosen: false,
-    },
-    {
-      id: 2,
-      name: "Jogo de Cama Queen",
-      description: "Conforto e elegância para o novo lar.",
-      price: "R$ 350,00",
-      chosen: false,
-    },
-    {
-      id: 3,
-      name: "Cafeteira Elétrica",
-      description: "Para começar as manhãs com mais sabor.",
-      price: "R$ 420,00",
-      chosen: false,
-    },
-    {
-      id: 4,
-      name: "Liquidificador",
-      description: "Ideal para sucos e receitas rápidas.",
-      price: "R$ 280,00",
-      chosen: false,
-    },
-    {
-      id: 5,
-      name: "Experiência Romântica",
-      description: "Jantar especial ou viagem inesquecível.",
-      price: "Valor livre",
-      chosen: false,
-    },
-  ]);
-
-  function chooseGift(id) {
-    setGifts((prev) =>
-      prev.map((gift) =>
-        gift.id === id ? { ...gift, chosen: true } : gift
-      )
-    );
-  }
+export default function Home() {
+  const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100 to-teal-100 p-6">
-      <header className="text-center mb-10">
-        <h1 className="text-4xl font-bold"> Lista de Presentes</h1>
-        <p className="text-gray-600 mt-2">
-          Ajude o casal a começar essa nova fase com muito amor 
-        </p>
-      </header>
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-teal-50">
+      <div className="max-w-4xl mx-auto px-6 py-12">
+        <header className="text-center mb-16">
+          <h1 className="text-5xl font-bold text-gray-800 mb-4">
+            Bem-vindos ao nosso casamento!
+          </h1>
+          <p className="text-xl text-gray-600">
+            Celebrando o amor e o início de uma nova jornada
+          </p>
+        </header>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        {gifts.map((gift) => (
-          <Card key={gift.id} className="rounded-2xl shadow-md">
-            <CardContent className="p-6 flex flex-col h-full">
-              <h2 className="text-xl font-semibold mb-2">{gift.name}</h2>
-              <p className="text-gray-600 flex-grow">{gift.description}</p>
-              <span className="font-bold text-green-700 mt-4">
-                {gift.price}
-              </span>
+        <section className="mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="aspect-square bg-gradient-to-br from-pink-200 to-pink-300 rounded-2xl shadow-lg flex items-center justify-center">
+              <p className="text-gray-600 text-center px-6">Foto do casal 1</p>
+            </div>
+            <div className="aspect-square bg-gradient-to-br from-teal-200 to-teal-300 rounded-2xl shadow-lg flex items-center justify-center">
+              <p className="text-gray-600 text-center px-6">Foto do casal 2</p>
+            </div>
+          </div>
 
-              <Button
-                className="mt-5"
-                disabled={gift.chosen}
-                onClick={() => chooseGift(gift.id)}
-              >
-                {gift.chosen ? "Presente escolhido " : "Escolher presente"}
-              </Button>
-            </CardContent>
-          </Card>
-        ))}
+          <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
+            <h2 className="text-3xl font-semibold text-gray-800 mb-6 text-center">
+              Nossa História
+            </h2>
+            <div className="space-y-4 text-gray-700 leading-relaxed">
+              <p>
+                Somos [Nome do Noivo] e [Nome da Noiva], e estamos muito felizes em compartilhar 
+                este momento especial com vocês. Nossa história começou há [X anos], quando nos 
+                conhecemos [como vocês se conheceram].
+              </p>
+              <p>
+                Desde então, construímos juntos momentos inesquecíveis, superamos desafios e 
+                crescemos lado a lado. Hoje, estamos prontos para dar o próximo passo e oficializar 
+                nosso amor.
+              </p>
+              <p>
+                A presença de cada um de vocês é o maior presente que poderíamos receber. 
+                No entanto, se desejarem nos presentear, preparamos uma lista especial de 
+                itens que nos ajudarão a construir nosso novo lar.
+              </p>
+            </div>
+          </div>
+
+          <div className="aspect-video bg-gradient-to-br from-pink-100 to-teal-100 rounded-2xl shadow-lg flex items-center justify-center">
+            <p className="text-gray-600 text-center px-6">Foto do casal 3</p>
+          </div>
+        </section>
+
+        <div className="text-center">
+          <Button
+            onClick={() => router.push("/presentes")}
+            size="lg"
+            className="text-lg px-8 py-6 rounded-xl shadow-lg"
+          >
+            Ver Lista de Presentes
+          </Button>
+        </div>
+
+        <footer className="text-center mt-16 text-gray-600">
+          <p>Com amor, os noivos ❤️</p>
+        </footer>
       </div>
-
-      <footer className="text-center mt-12 text-gray-600">
-        Com carinho, os noivos 
-      </footer>
     </div>
   );
 }
