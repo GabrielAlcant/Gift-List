@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 export default function GiftList() {
+  const router = useRouter();
   const [gifts, setGifts] = useState([
     {
       id: 1,
@@ -44,11 +46,14 @@ export default function GiftList() {
   ]);
 
   function chooseGift(id: number) {
-    setGifts((prev) =>
-      prev.map((gift) =>
-        gift.id === id ? { ...gift, chosen: true } : gift
-      )
-    );
+    const gift = gifts.find((g) => g.id === id);
+    if (gift) {
+      router.push(
+        `/presentes/pagamento?id=${gift.id}&name=${encodeURIComponent(
+          gift.name
+        )}&price=${encodeURIComponent(gift.price)}`
+      );
+    }
   }
 
   return (
