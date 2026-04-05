@@ -47,6 +47,20 @@ export default function PaymentPage() {
         <CardContent className="p-8">
           <div className="text-center mb-6">
             <h1 className="text-3xl font-bold mb-2">Pagamento PIX</h1>
+            <p className="text-2xl font-bold mb-2">Instruções de Pagamento:</p>
+            <p className="text-gray-600">
+              1. Abra o aplicativo do banco ou carteira digital que suporta pagamentos via PIX no seu celular.
+            </p>
+            <p className="text-gray-600">
+              2. Selecione a opção "Pagar com QR Code" ou "Pagar com Chave PIX Copia e Cola"
+            </p>
+            <p className="text-gray-600">
+              3. Escaneie o QR Code abaixo ou copie e cole a chave PIX
+            </p>
+            <p className="text-gray-600 mb-2">
+              4. Digite o valor exibido na tela e conclua o pagamento
+            </p>
+
             <p className="text-gray-600">Presente escolhido: {giftName}</p>
             <p className="text-2xl font-bold text-green-700 mt-2">{giftPrice}</p>
           </div>
@@ -81,6 +95,13 @@ export default function PaymentPage() {
               onClick={() => router.push("/presentes")}
             >
               Voltar para lista
+            </Button>
+            <Button
+              variant="outline"
+              className="w-full"
+              onClick={() => router.push("/")}
+            >
+              ← Voltar para Home
             </Button>
           </div>
         </CardContent>

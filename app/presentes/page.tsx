@@ -13,7 +13,9 @@ export default function GiftList() {
       id: 1,
       name: "Aspirador de Pó",
       description: "Praticidade para manter a casa sempre limpa.",
-      price: "R$ 139,00",      image: "/images/products/aspirador.webp",      chosen: false,
+      price: "R$ 139,00",      
+      image: "/images/products/aspirador.webp",      
+      chosen: false,
     },
     {
       id: 2,
@@ -114,12 +116,44 @@ export default function GiftList() {
     },
     {
       id: 14,
-      name: "Jogo de Cama Casal",
-      description: "Conjunto de cama para o conforto do casal.",
-      price: "R$ 199,00",
-      image: "/images/products/jogo de cama casal.jpg",
+      name: "Jogo De Talheres",
+      description: "Conjunto de talheres para a mesa do casal.",
+      price: "R$ 65,00",
+      image: "/images/products/jogo de talheres.webp",
       chosen: false,
-    }
+    },
+    {
+      id: 15,
+      name: "Ferro de Passar Roupas",
+      description: "Perfeito para manter as roupas do casal impecáveis.",
+      price: "R$ 85,00",
+      image: "/images/products/ferro de passar.webp",
+      chosen: false,
+    },
+    {
+      id: 16,
+      name: "Kit Pratos",
+      description: "Conjunto de pratos para a mesa do casal.",
+      price: "R$ 93,00",
+      image: "/images/products/kit pratos.jpg",
+      chosen: false,
+    },
+    {
+      id: 17,
+      name: "Pijama Combinando",
+      description: "Conjunto de pijamas combinando para o casal.",
+      price: "R$ 72,00",
+      image: "/images/products/pijama casal.webp",
+      chosen: false,
+    },
+    {
+      id: 18,
+      name: "Doação de Livre Valor",
+      description: "Contribua com o valor que desejar para ajudar o casal a construir seu lar.",
+      price: "Livre Valor",
+      image: "/images/products/livre valor.png",
+      chosen: false,
+    },
   ]);
 
   function chooseGift(id: number) {
@@ -173,7 +207,7 @@ export default function GiftList() {
       </div>
 
       <footer className="text-center mt-12 text-gray-600">
-        Com carinho, os noivos 
+        Com carinho, Daniel e Laiana 
       </footer>
     </div>
   );

@@ -91,7 +91,7 @@ export default function Home() {
         </div>
 
         <footer className="text-center mt-16 text-gray-600">
-          <p>Com amor, os noivos ❤️</p>
+          <p>Com amor, Daniel e Laiana</p>
         </footer>
       </div>
     </div>
