@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import QRCode from "qrcode";
 
-export default function PaymentPage() {
+function PaymentContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [qrCodeUrl, setQrCodeUrl] = useState("");
@@ -107,5 +107,13 @@ export default function PaymentPage() {
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+export default function PaymentPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gradient-to-br from-pink-100 to-teal-100 p-6 flex items-center justify-center"><div className="text-center">Carregando...</div></div>}>
+      <PaymentContent />
+    </Suspense>
   );
 }
